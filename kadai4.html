@@ -38,6 +38,7 @@
 
                     // 配列の内容を項目毎に出力
                     // 課題4-1. ここにコードを書く
+                    console.log(`\n商品は以下の${Item.number}種類です。`);
                     console.log(""); // 空行の出力
                 }
                 
@@ -46,9 +47,13 @@
                     if (this.stock >= 1) { 
                         console.log("商品番号: "+this.id+", 商品名: "+this.name+"を購入します。");
                         // 課題4-2. ここにコードを書く
+                        this.stock--;
+                          console.log(`残りは${this.stock}個です。`);
                         // 購入による商品の在庫削減処理
                         
                         // 課題4-3. ここにコードを書く
+                        const stockTd = document.getElementById(`stock${this.id}`);
+                        if (stockTd) stockTd.textContent = this.stock;
                         // 在庫用のエレメントを抽出し、HTML内の個数を更新
                     } else console.log(this.name+"は商品の在庫がないため購入できません。");
                 }
